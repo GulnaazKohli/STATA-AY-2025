@@ -1,0 +1,50 @@
+sysuse nlsw88
+tab race
+drop if race==3
+tab race
+ bys race: su wage
+db ttest
+ttest wage == 6.84
+ttest wage, by(race)
+tab collgrad
+bys collgrad: su wage
+ttest wage, by(collgrad)
+tab c_city
+bys c_city: su wage
+ ttest wage, by(c_city)
+ sysuse nlsw88, clear
+tab occupation
+tab occupation, nolabel
+ keep if occupation=1
+keep if occupation==1
+keep if occupation==3
+tab occupation
+clear
+sysuse nlsw88
+tab occupation
+keep if occupation==1,3
+ keep if occupation==1 & 3
+sysuse nlsw88,clear
+tab occupation
+ keep if occupation==1 & occupation==3
+tab occupation
+sysuse nlsw88,clear
+ tab occupation
+keep if occupation==1 | occupation==3
+ tab occupation
+bys occupation: su wage
+ttest wage, by(occupation)
+tab race
+tab ttl_exp
+ttest wage, by(race)
+bys race: su wage
+ttest wage, by(race)
+ drop if race==3
+bys race: su wage
+bys race: su wage
+ttest wage, by(race)
+bys ttl_exp : su wage
+su ttl_exp
+bys wage : su ttl_exp
+ ttest ttl_exp , by(race)
+
