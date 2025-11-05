@@ -1,0 +1,38 @@
+sysuse auto
+des
+twoway (scatter price mpg,col(red))
+twoway (scatter price mpg,col(red))
+graph save grp1
+graph save g1
+twoway (scatter price length,col(blue))
+graph save g2
+twoway (scatter price headroom,col(green))
+graph save g3
+ twoway (scatter price weight,col(brown))
+graph save g4
+twoway (scatter price trunk,col(pink))
+graph save g5
+twoway (scatter price turn,col(black))
+graph save g6
+ graph combine g1.gph g2.gph g3.gph g4.gph g5.gph g6.gph
+ graph combine g1.gph g2.gph g3.gph g4.gph g5.gph g6.gph, row(3)
+graph save g7
+graph combine g1.gph g2.gph g3.gph g4.gph g5.gph g6.gph ,scheme(economist)
+graph save g8
+twoway (scatter price mpg,col(red)),scheme(economist)
+ graph save g1,replace
+twoway (scatter price length,col(blue)),scheme(economist)
+graph save g2,replace
+twoway (scatter price headroom,col(green)),scheme(economist)
+graph save g3,replace
+twoway (scatter price weight,col(brown)),scheme(economist)
+graph save g4,replace
+twoway (scatter price trunk,col(pink)),scheme(economist)
+graph save g5,replace
+twoway (scatter price turn,col(black)),scheme(economist)
+ graph save g6,replace
+ graph combine g1.gph g2.gph g3.gph g4.gph g5.gph g6.gph, row(3)
+ graph combine g1.gph g2.gph g3.gph g4.gph g5.gph g6.gph, col(3)
+ graph save g9
+ graph combine g1.gph g2.gph g3.gph g4.gph g5.gph g6.gph ,row(3)
+graph save g10
